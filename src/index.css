@@ -1,0 +1,23 @@
+body{
+    margin: 0;
+}
+
+.header1{
+    background: url('/assets/headerImg.jpg');
+    background-size: 100%;
+    font-size: 100px;
+    text-align: center;
+}
+
+.part{
+    display: inline;
+}
+.part ul{
+    display: inline-block;
+}
+.part div{
+    display: inline;
+}
+#part2{
+    vertical-align: 35px;
+}
