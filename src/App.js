@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Student from './studentRecords';
 import Teacher from './teacherRecord';
+import Addteacher from './AddTeacherInfo';
 import teacherData from './data/teacherData'
 
 import {
@@ -43,6 +44,7 @@ class App extends Component{
                             </div>
                         
                             <div className='part' id='part2'>
+                                <Route path='/addTeacher' component={Addteacher} />
                                 <Route path='/viewTeacher' render={
                                     (teacherData) => <Teacher {...teacherData} />} />
                                 <Route path='/viewStudent' render={
