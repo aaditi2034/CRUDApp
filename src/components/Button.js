@@ -5,8 +5,10 @@ const Button = function(props) {
         <button 
             style= {props.style} 
             className = 'btn'
-            onClick= {props.action} 
-        >{props.title}</button>
+            onClick= {props.onClick} 
+        >
+            {props.title}
+        </button>
     )
 }
 

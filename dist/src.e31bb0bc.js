@@ -24131,7 +24131,7 @@ function (_Component) {
 
 var _default = teacherRecord;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js"}],"data/teacherData.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js"}],"components/InputField.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -24143,18 +24143,264 @@ var _react = _interopRequireDefault(require("react"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var Input = function Input(props) {
+  return _react.default.createElement("div", {
+    className: "row-label"
+  }, _react.default.createElement("div", {
+    id: "label-id"
+  }, _react.default.createElement("label", {
+    className: "form-label"
+  }, props.title)), _react.default.createElement("div", {
+    id: "input-id"
+  }, _react.default.createElement("input", {
+    type: props.inputType,
+    className: "form-control",
+    id: props.name,
+    name: props.name,
+    value: props.value,
+    placeholder: props.placeholder,
+    onChange: props.onChange,
+    onClick: props.onClick
+  })));
+};
+
+var _default = Input;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js"}],"components/Select.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Select = function Select(props) {
+  return _react.default.createElement("div", {
+    className: "form-group"
+  }, _react.default.createElement("label", null, " ", props.title, " "), _react.default.createElement("select", {
+    id: props.name,
+    name: props.name,
+    value: props.value,
+    onChange: props.handleChange,
+    className: "form-control"
+  }, _react.default.createElement("option", {
+    value: "",
+    disabled: true
+  }, props.placeholder), props.options.map(function (option) {
+    return _react.default.createElement("option", {
+      key: option,
+      value: option,
+      label: option
+    }, option);
+  })));
+};
+
+var _default = Select;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js"}],"data/teacherData.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
 var teacherData = [{
-  id: 1,
   Name: 'Divyaansh Jaiswaal',
   Age: '25',
   Gender: 'Male',
-  College: 'BSCIT',
-  Subject: 'Java Script',
-  Hometown: 'Kurushetra'
+  Email: 'div@gmail.com',
+  Designation: 'Java Script'
 }];
 var _default = teacherData;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js"}],"../node_modules/warning/warning.js":[function(require,module,exports) {
+},{}],"AddTeacherInfo.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _InputField = _interopRequireDefault(require("./components/InputField"));
+
+var _Select = _interopRequireDefault(require("./components/Select"));
+
+var _teacherData = _interopRequireDefault(require("./data/teacherData"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+var AddTeacherInfo =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(AddTeacherInfo, _Component);
+
+  function AddTeacherInfo(props) {
+    var _this;
+
+    _classCallCheck(this, AddTeacherInfo);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(AddTeacherInfo).call(this, props));
+    _this.state = {
+      name: '',
+      age: '',
+      gender: '',
+      email: '',
+      designation: '',
+      genderOptions: ['Male', 'Female', 'Others'],
+      designationOptions: ['WebTech', 'DataStructures', 'Android', 'OS', 'DAA', 'Compiler']
+    };
+    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    _this.handleChangeName = _this.handleChangeName.bind(_assertThisInitialized(_this));
+    _this.handleChangeAge = _this.handleChangeAge.bind(_assertThisInitialized(_this));
+    _this.handleChangeGender = _this.handleChangeGender.bind(_assertThisInitialized(_this));
+    _this.handleChangeEmail = _this.handleChangeEmail.bind(_assertThisInitialized(_this));
+    _this.handleChangeDesignation = _this.handleChangeDesignation.bind(_assertThisInitialized(_this));
+    return _this;
+  } //Works when form is submitted.
+
+
+  _createClass(AddTeacherInfo, [{
+    key: "handleSubmit",
+    value: function handleSubmit(e) {
+      var data = {
+        name: this.state.name,
+        age: this.state.age,
+        gender: this.state.gender,
+        email: this.state.email
+      };
+
+      _teacherData.default.push(data);
+
+      alert(_teacherData.default[1].name);
+      alert(this.state.age);
+      alert(this.state.gender);
+      this.handleClearForm(e);
+    }
+  }, {
+    key: "handleClearForm",
+    value: function handleClearForm(e) {
+      this.setState({
+        name: '',
+        age: '',
+        gender: '',
+        email: ''
+      }); // e.preventDefault();
+    }
+  }, {
+    key: "handleChangeName",
+    value: function handleChangeName() {
+      var val = document.getElementById('name').value;
+      this.setState({
+        'name': val
+      });
+    }
+  }, {
+    key: "handleChangeAge",
+    value: function handleChangeAge() {
+      var val = document.getElementById('age').value;
+      this.setState({
+        'age': val
+      });
+    }
+  }, {
+    key: "handleChangeGender",
+    value: function handleChangeGender() {
+      var val = document.getElementById('gender').value;
+      this.setState({
+        'gender': val
+      });
+    }
+  }, {
+    key: "handleChangeEmail",
+    value: function handleChangeEmail() {
+      var val = document.getElementById('email').value;
+      this.setState({
+        'email': val
+      });
+    }
+  }, {
+    key: "handleChangeDesignation",
+    value: function handleChangeDesignation() {
+      var val = document.getElementById('designation').value;
+      this.setState({
+        'designation': val
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return _react.default.createElement("form", {
+        className: "teacher-container"
+      }, _react.default.createElement(_InputField.default, {
+        inputType: 'text',
+        title: 'Full Name',
+        name: 'name',
+        placeholder: 'Enter Full Name',
+        onChange: this.handleChangeName
+      }), " ", _react.default.createElement("br", null), _react.default.createElement(_InputField.default, {
+        inputType: 'number',
+        title: 'Age',
+        name: 'age',
+        placeholder: 'Enter Age',
+        onChange: this.handleChangeAge
+      }), " ", _react.default.createElement("br", null), _react.default.createElement(_Select.default, {
+        title: 'Gender',
+        name: 'gender',
+        options: this.state.genderOptions,
+        placeholder: 'Select Gender',
+        onChange: this.handleChangeGender
+      }), " ", _react.default.createElement("br", null), _react.default.createElement(_InputField.default, {
+        inputType: 'text',
+        title: 'Email',
+        name: 'email',
+        placeholder: 'abc@gmail.com',
+        onChange: this.handleChangeEmail
+      }), " ", _react.default.createElement("br", null), _react.default.createElement(_Select.default, {
+        title: 'Designation',
+        name: 'designation',
+        options: this.state.designationOptions,
+        placeholder: 'Select Designation',
+        onChange: this.handleChangeDesignation
+      }), " ", _react.default.createElement("br", null), _react.default.createElement(_InputField.default, {
+        inputType: "submit",
+        value: "INSERT INFO",
+        onClick: this.handleSubmit
+      }));
+    }
+  }]);
+
+  return AddTeacherInfo;
+}(_react.Component);
+
+var _default = AddTeacherInfo;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","./components/InputField":"components/InputField.js","./components/Select":"components/Select.js","./data/teacherData":"data/teacherData.js"}],"../node_modules/warning/warning.js":[function(require,module,exports) {
 /**
  * Copyright (c) 2014-present, Facebook, Inc.
  *
@@ -28984,6 +29230,8 @@ var _studentRecords = _interopRequireDefault(require("./studentRecords"));
 
 var _teacherRecord = _interopRequireDefault(require("./teacherRecord"));
 
+var _AddTeacherInfo = _interopRequireDefault(require("./AddTeacherInfo"));
+
 var _teacherData = _interopRequireDefault(require("./data/teacherData"));
 
 var _reactRouterDom = require("react-router-dom");
@@ -29004,6 +29252,8 @@ function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) ===
 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
@@ -29014,12 +29264,9 @@ function (_Component) {
   _inherits(App, _Component);
 
   function App() {
-    var _this;
-
     _classCallCheck(this, App);
 
-    _this.state = {};
-    return _possibleConstructorReturn(_this);
+    return _possibleConstructorReturn(this, _getPrototypeOf(App).apply(this, arguments));
   }
 
   _createClass(App, [{
@@ -29029,9 +29276,7 @@ function (_Component) {
         className: "container"
       }, _react.default.createElement("div", {
         className: "header1"
-      }, "Student - Teacher Records"), _react.default.createElement("div", {
-        className: "bodyPart"
-      }, _react.default.createElement(_reactRouterDom.BrowserRouter, null, _react.default.createElement("div", {
+      }, "Student - Teacher Records"), _react.default.createElement(_reactRouterDom.BrowserRouter, null, _react.default.createElement("div", {
         className: "routerContainer"
       }, _react.default.createElement("div", {
         className: "part",
@@ -29052,6 +29297,9 @@ function (_Component) {
         className: "part",
         id: "part2"
       }, _react.default.createElement(_reactRouterDom.Route, {
+        path: "/addTeacher",
+        component: _AddTeacherInfo.default
+      }), _react.default.createElement(_reactRouterDom.Route, {
         path: "/viewTeacher",
         render: function render(teacherData) {
           return _react.default.createElement(_teacherRecord.default, teacherData);
@@ -29061,7 +29309,7 @@ function (_Component) {
         render: function render(studentData) {
           return _react.default.createElement(_studentRecords.default, studentData);
         }
-      }))))));
+      })))));
     }
   }]);
 
@@ -29070,7 +29318,7 @@ function (_Component) {
 
 var _default = App;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","./studentRecords":"studentRecords.js","./teacherRecord":"teacherRecord.js","./data/teacherData":"data/teacherData.js","react-router-dom":"../node_modules/react-router-dom/es/index.js"}],"index.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","./studentRecords":"studentRecords.js","./teacherRecord":"teacherRecord.js","./AddTeacherInfo":"AddTeacherInfo.js","./data/teacherData":"data/teacherData.js","react-router-dom":"../node_modules/react-router-dom/es/index.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -29109,7 +29357,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56269" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49708" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
